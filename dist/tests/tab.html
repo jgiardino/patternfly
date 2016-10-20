@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en-us" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+  <head>
+    <title>Tab - PatternFly</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../dist/img/favicon.ico">
+    <!-- iPad retina icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../dist/img/apple-touch-icon-precomposed-152.png">
+    <!-- iPad retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../dist/img/apple-touch-icon-precomposed-144.png">
+    <!-- iPad non-retina icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../../dist/img/apple-touch-icon-precomposed-76.png">
+    <!-- iPad non-retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../dist/img/apple-touch-icon-precomposed-72.png">
+    <!-- iPhone 6 Plus icon -->
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../dist/img/apple-touch-icon-precomposed-180.png">
+    <!-- iPhone retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../dist/img/apple-touch-icon-precomposed-114.png">
+    <!-- iPhone non-retina icon (iOS < 7) -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../dist/img/apple-touch-icon-precomposed-57.png">
+    <link rel="stylesheet" href="../../dist/css/patternfly.min.css" >
+    <link rel="stylesheet" href="../../dist/css/patternfly-additions.min.css" >
+      <link href="tests.css" rel="stylesheet" media="screen, print">
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="../../dist/js/patternfly.min.js"></script>
+  </head>
+  <div class="toast-notifications-list-pf">
+    <div class="toast-pf alert alert-warning alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        <span class="pficon pficon-close"></span>
+      </button>
+      <span class="pficon pficon-warning-triangle-o"></span>
+      These examples are included for development testing purposes.  For official documentation, see <a href="https://www.patternfly.org" class="alert-link">https://www.patternfly.org</a> and <a href="http://getbootstrap.com" class="alert-link">http://getbootstrap.com</a>.
+    </div>
+  </div>
+
+  <body>
+    <nav class="navbar navbar-default navbar-pf" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="../../dist/img/brand.svg" alt="PatternFly Enterprise Application" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-utility">
+          <li>
+            <a href="#">Status</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="pficon pficon-user"></span>
+              Brian Johnson <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">Link</a>
+              </li>
+              <li>
+                <a href="#">Another link</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">More options</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">Link</a>
+                  </li>
+                  <li>
+                    <a href="#">Another link</a>
+                  </li>
+                  <li>
+                    <a href="#">Something else here</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li>
+                    <a href="#">Separated link</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">One more separated link</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">One more separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-primary">
+          <li>
+            <a href="basic.html">Basic</a>
+          </li>
+          <li>
+            <a href="bootstrap-treeview-2.html">Tree View</a>
+          </li>
+          <li>
+            <a href="dashboard.html">Dashboard</a>
+          </li>
+          <li>
+            <a href="form.html">Form</a>
+          </li>
+          <li class="active">
+            <a href="tab.html" class="active">Tab</a>
+          </li>
+          <li>
+            <a href="typography-2.html">Typography</a>
+          </li>
+          <li>
+            <a href="card-view-multi-select.html">Card View - Multi Select</a>
+          </li>
+          <li>
+            <a href="card-view-single-select.html">Card View - Single Select</a>
+          </li>
+          <li>
+            <a href="cards.html">Cards</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-9 col-md-10 col-sm-push-3 col-md-push-2">
+          <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li>Tab</li>
+          </ol>
+          <h1>Tab</h1>
+           <!--Note: the markup semantics used to create "nested" tabs are sub-optimal in order to easily achieve a responsive layout.-->
+           <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Tab One</a></li>
+            <li><a href="#">Tab Two</a></li>
+            <li><a href="#">Tab Three</a></li>
+            <li><a href="#">Tab Four</a></li>
+            <li><a href="#">Tab Five</a></li>
+            <li><a href="#">Tab Six</a></li>
+            <li><a href="#">Tab Seven</a></li>
+          </ul>
+          <ul class="nav nav-tabs nav-tabs-pf">
+            <li class="active"><a href="#">Secondary Tab One</a></li>
+            <li><a href="#">Secondary Tab Two</a></li>
+            <li><a href="#">Secondary Tab Three</a></li>
+            <li><a href="#">Secondary Tab Four</a></li>
+            <li><a href="#">Secondary Tab Five</a></li>
+          </ul>
+<div class="datatable-pf">
+<div class="row toolbar-pf">
+  <div class="col-sm-12">
+    <form class="toolbar-pf-actions">
+      <div class="form-group toolbar-pf-filter">
+        <label class="sr-only" for="filterMenu">Rendering engine</label>
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" id="filterMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rendering engine <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Rendering engine</a></li>
+              <li><a href="#">Browser</a></li>
+              <li><a href="#">Platform(s)</a></li>
+              <li><a href="#">Engine version</a></li>
+              <li><a href="#">CSS grade</a></li>
+            </ul>
+          </div>
+          <input type="text" class="form-control" placeholder="Filter By Rendering engine..." autocomplete="off">
+        </div>
+      </div>
+      <div class="toolbar-pf-action-right">
+        <button class="btn btn-default" type="button" id="deleteAllRows">Delete All Rows</button>
+        <button class="btn btn-default" type="button" id="restoreRows">Restore Rows</button>
+        <button class="btn btn-default" type="button">Action</button>
+        <div class="dropdown pull-right dropdown-kebab-pf">
+  <button class="btn btn-link dropdown-toggle" type="button" id="actionsKebab" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="fa fa-ellipsis-v"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="actionsKebab">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+
+      </div>
+    </form>
+    <div class="row toolbar-pf-results">
+      <div class="col-sm-10">
+        <div class="hidden">
+          <p>Active filters:</p>
+          <ul class="list-inline"></ul>
+          <p><a href="#">Clear All Filters</a></p>
+        </div>
+      </div>
+      <div class="col-sm-2 datatable-pf-results-right">
+        <strong>0</strong> of <strong>0</strong> selected
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped table-bordered table-hover" id="table">
+  <thead>
+    <tr>
+      <th><label class="sr-only">Select all rows</label><input type="checkbox" name="selectAll"></th>
+      <th>Rendering engine</th>
+      <th>Browser</th>
+      <th>Platform(s)</th>
+      <th>Engine version</th>
+      <th>CSS grade</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+</table>
+<div class="blank-slate-pf">
+  <div class="blank-slate-pf-icon">
+    <span class="pficon pficon pficon-add-circle-o"></span>
+  </div>
+  <h1>
+    Empty State Title
+  </h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+  <p>
+    Learn more about this <a href="#">on the documentation</a>.
+  </p>
+  <div class="blank-slate-pf-main-action">
+    <button class="btn btn-primary btn-lg"> Main Action </button>
+  </div>
+  <div class="blank-slate-pf-secondary-action">
+    <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button> <button class="btn btn-default"> Secondary Action </button>
+  </div>
+</div>
+
+</div>
+<script>
+  // Data
+  var dataSet = [{
+    engine: "Trident",
+    browser: "Internet Explorer 4.0",
+    platforms: "Win 95+",
+    version: "4",
+    grade: "X"
+  },{
+    engine: "Trident",
+    browser: "Internet Explorer 5.0",
+    platforms: "Win 95+",
+    version: "5",
+    grade: "C"
+  }, {
+    engine: "Trident",
+    browser: "Internet Explorer 5.5",
+    platforms: "Win 95+",
+    version: "5.5",
+    grade: "A"
+  }, {
+    engine: "Trident",
+    browser: "Internet Explorer 6",
+    platforms: "Win 98+",
+    version: "6",
+    grade: "A"
+  }, {
+    engine: "Trident",
+    browser: "Internet Explorer 7",
+    platforms: "Win XP SP2+",
+    version: "7",
+    grade: "A"
+  }, {
+    engine: "Trident",
+    browser: "AOL browser (AOL desktop)",
+    platforms: "Win XP",
+    version: "6",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Firefox 1.0",
+    platforms: "Win 98+ / OSX.2+",
+    version: "1.7",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Firefox 1.5",
+    platforms: "Win 98+ / OSX.2+",
+    version: "1.8",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Firefox 2.0",
+    platforms: "Win 98+ / OSX.2+",
+    version: "1.8",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Firefox 3.0",
+    platforms: "Win 2k+ / OSX.3+",
+    version: "1.9",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Camino 1.0",
+    platforms: "OSX.2+",
+    version: "1.8",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Camino 1.5",
+    platforms: "OSX.3+",
+    version: "1.8",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Netscape 7.2",
+    platforms: "Win 95+ / Mac OS 8.6-9.2",
+    version: "1.7",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Netscape Browser 8",
+    platforms: "Win 98SE+",
+    version: "1.7",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Netscape Navigator 9",
+    platforms: "Win 98+ / OSX.2+",
+    version: "1.8",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Mozilla 1.0",
+    platforms: "Win 95+ / OSX.1+",
+    version: "1",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Mozilla 1.1",
+    platforms: "Win 95+ / OSX.1+",
+    version: "1.1",
+    grade: "A"
+  }, {
+    engine: "Gecko",
+    browser: "Mozilla 1.2",
+    platforms: "Win 95+ / OSX.1+",
+    version: "1.2",
+    grade: "A"
+  }];
+</script>
+
+<script>
+  /**
+   * Utility for filtering data table rows.
+   *
+   * Note: This functionality currently expects column 0 to contain checkboxes and that
+   * all data columns may be filtered.
+   *
+   * @param {object} config - Identifiers associated with the data table
+   * @param {string} config.datatableId - Identifier for the data table
+   */
+  var dataTableFilterUtil = function(config) {
+    var self = this;
+    this.datatable = $(config.datatableId); // Data table container
+    this.activeControls = this.datatable.find('.list-inline'); // Active filter controls container
+    this.activeFilters = this.activeControls.closest('div'); // Active filters container
+    this.clearAllFilters = this.datatable.find('.toolbar-pf-results a'); // Clear all filters control
+    this.filters = []; // Filters array
+    this.filterMenu = this.datatable.find('.toolbar-pf-filter button'); // Filter menu
+    this.filterColumn = 1; // Current column to filter
+    this.filterLabel = this.datatable.find('.toolbar-pf-filter label'); // Filter label
+    this.filterOptions = this.datatable.find('.toolbar-pf-filter a');
+    this.filterName = this.filterOptions.first().get(0).text; // Name of current filter
+    this.filterInput = this.datatable.find('.toolbar-pf-filter input'); // Filter input
+    this.table = this.datatable.find('table').DataTable(); // Data table
+
+    // Helper function to add active filter control
+    this.addActiveFilterControl = function(filter) {
+      // Append active filter control
+      self.activeControls.append('<li><span class="label label-info">' + filter.name + ': ' + filter.value +
+        '<a href="#"><span class="pficon pficon-close"/></a></span></li>');
+
+      // Handle click to clear active filter
+      self.activeControls.find('a').last().on('click', function (e) {
+        // Find existing filter and remove
+        for (var i = 0; i < self.filters.length; i++) {
+          if (self.filters[i].column === filter.column && self.filters[i].value === filter.value) {
+            self.filters.splice(i, 1);
+            $(this).parents('li').remove();
+            break;
+          }
+        }
+        if (self.filters.length === 0) {
+          self.activeFilters.addClass('hidden'); // Hide
+        }
+        self.table.draw();
+      });
+      // Show active filters
+      self.activeFilters.removeClass('hidden');
+    };
+
+    // Handle enter key press on filter input to apply filter
+    this.filterInput.on('keypress', function (e) {
+      var newFilter;
+      var found = false;
+      var keycode = (e.keyCode ? e.keyCode : e.which);
+      if (keycode === 13 && this.value.trim().length > 0) {
+        newFilter = {
+          column: self.filterColumn,
+          name: self.filterName,
+          value: this.value
+        };
+        // Find existing entry
+        $.grep(self.filters, function(f) {
+          if (f.column === newFilter.column && f.value === newFilter.value) {
+            found = true;
+          }
+        });
+        // Add new filter
+        if (!found) {
+          self.addActiveFilterControl(newFilter);
+          self.filters.push(newFilter);
+          self.table.draw();
+        }
+        self.filterInput.get(0).value = ""; // Clear input
+      }
+    });
+
+    // Handle click on filter menu to set current filter column and name
+    for (var i = 0; i < this.filterOptions.length; i++) {
+      (function(i) {
+        $(self.filterOptions[i]).on('click', function (e) {
+          self.filterLabel.html($(this).text()); // Set filter label
+          self.filterMenu.html($(this).text() + " <span class='caret'></span>"); // Set filter button
+          self.filterInput.get(0).placeholder = "Filter By " + this.text + "..."; // Set input placeholder
+          self.filterName = $(this).text(); // Save filter name for active filter control
+          self.filterColumn = i + 1; // Expecting column 0 to contain checkboxes
+        });
+      })(i);
+    }
+
+    // Handle click on clear all filters control
+    this.clearAllFilters.on('click', function (e) {
+      self.filters.length = 0; // Reset filters
+      self.activeControls.html(""); // Remove all active filter controls
+      self.activeFilters.addClass('hidden'); // Hide active filters area
+      self.table.draw();
+    });
+
+    // Disable form submit on FF when pressing enter in filter input.
+    $('.toolbar-pf-actions').submit(function (event) {
+      event.preventDefault();
+    });
+
+    // Custom filter
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+      var showThisRow = true;
+      // Must match all filters
+      $.each(self.filters, function (index, filter) {
+        if (data[filter.column].indexOf(filter.value) === -1) {
+          showThisRow = false;
+        }
+      });
+      return showThisRow;
+    });
+  };
+</script>
+
+<script>
+  /**
+   * Utility to show empty data table.
+   *
+   * Note: This functionality currently expects the data table toolbar contains delete all and restore controls.
+   *
+   * @param {object} config - Identifiers and data associated with the data table
+   * @param {object} config.data - Data set for the data table
+   * @param {string} config.datatableId - Identifier for the data table
+   * @param {string} config.deleteAllRowsId - Identifier for the delete all rows control
+   * @param {string} config.restoreRowsId - Identifier for the restore rows control
+   */
+  var dataTableEmptyUtil = function (config) {
+    var self = this;
+    this.datatable = $(config.datatableId); // Data table container
+    this.actions = this.datatable.find('.toolbar-pf-actions'); // Toolbar actions container
+    this.activeFilters = this.datatable.find('.list-inline').closest('div'); // Active filters container
+    this.blankSlate = this.datatable.find('.blank-slate-pf'); // Blank slate container for empty table
+    this.deleteAllRows = $(config.deleteAllRowsId); // Delete all rows control
+    this.restoreRows = $(config.restoreRowsId); // Restore rows control
+    this.results = this.datatable.find('.toolbar-pf-results'); // Toolbar results container
+    this.table = this.datatable.find('table').DataTable(); // Data table
+    this.tbody = this.datatable.find('tbody'); // Table body
+    this.thead = this.datatable.find('thead'); // Table head
+
+    // Handle click on delete all control
+    this.deleteAllRows.on('click', function() {
+      // Disable all buttons
+      self.actions.find('button').prop('disabled', true);
+      self.actions.find('input').prop('disabled', true);
+      self.blankSlate.removeClass('hidden'); // Show blank slate
+      self.restoreRows.get(0).disabled = false; // Enable restore rows control
+      self.results.children().addClass('hidden'); // Hide results container
+      self.tbody.addClass('hidden'); // Hide zero records message
+      self.thead.addClass('hidden'); // Hide column headers
+      self.table.clear().draw();
+    });
+
+    // Handle click on restore rows control
+    this.restoreRows.on('click', function() {
+      // Enable all buttons
+      self.actions.find('button').prop('disabled', false);
+      self.actions.find('input').prop('disabled', false);
+      self.blankSlate.addClass('hidden'); // Hide blank slate
+      self.restoreRows.get(0).disabled = true; // Disable restore rows control
+      self.results.children().removeClass('hidden'); // Show results container
+      self.tbody.removeClass('hidden'); // Show table body
+      self.thead.removeClass('hidden'); // Show column headers
+      self.table.rows.add(config.data).draw();
+    });
+
+    // Initialize blank slate and restore rows control.
+    this.blankSlate.addClass('hidden');
+    this.restoreRows.get(0).disabled = true;
+  };
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Initialize data table
+    var dt = $('#table').DataTable({
+        columns: [
+          { data: null,
+            className: "datatable-pf-select",
+            render: function (data, type, full, meta) {
+              // Select row checkbox renderer
+              return '<label class="sr-only">Select row ' + meta.row + '</label><input type="checkbox" name="select">';
+            },
+            sortable: false
+          },
+          { data: "engine" },
+          { data: "browser" },
+          { data: "platforms" },
+          { data: "version" },
+          { data: "grade"},
+          { data: null,
+            className: "datatable-pf-actions",
+            render: function (data, type, full, meta) {
+              // Inline action button renderer
+              return '<div class="table-btn-pf"><button class="btn btn-default" type="button">Actions</button></div>';
+            }
+          }, {
+            data: null,
+            className: "datatable-pf-actions",
+            render: function (data, type, full, meta) {
+              // Inline action kebab renderer
+              return '<div class="dropdown dropdown-kebab-pf">' +
+                '<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">' +
+                '<span class="fa fa-ellipsis-v"></span></button>' +
+                '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">' +
+                '<li><a href="#">Action</a></li>' +
+                '<li><a href="#">Another action</a></li>' +
+                '<li><a href="#">Something else here</a></li>' +
+                '<li role="separator" class="divider"></li>' +
+                '<li><a href="#">Separated link</a></li></ul></div>';
+            }
+          }
+        ],
+        data: dataSet,
+        dom: "t",
+        language: {
+          zeroRecords: "No records found"
+        },
+        order: [[ 1, 'asc' ]],
+        select: {
+            style: 'multi',
+            selector: 'td:first-child input[type="checkbox"]'
+        }
+    });
+
+    // Initialize filtering util
+    new dataTableFilterUtil({
+      datatableId: ".datatable-pf"
+    });
+
+    // Initialize empty data table util
+    new dataTableEmptyUtil({
+      data: dataSet,
+      datatableId: ".datatable-pf",
+      deleteAllRowsId: "#deleteAllRows",
+      restoreRowsId: "#restoreRows"
+    });
+  });
+</script>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget eros tincidunt, semper ante nec, dapibus ante.</p>
+        </div><!-- /col -->
+        <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
+          <div class="nav-category">
+            <h2>First Category</h2>
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#"><i class="fa fa-desktop"></i>System Information</a></li>
+              <li><a href="#"><i class="fa fa-cog"></i>System Services</a></li>
+              <li><a href="#"><i class="fa fa-file-text-o"></i>Journal</a></li>
+              <li><a href="#"><i class="fa fa-cloud"></i>Storage</a></li>
+            </ul>
+          </div>
+          <div class="nav-category">
+            <h2>Second Category</h2>
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">User Accounts</a></li>
+              <li><a href="#">Containers</a></li>
+              <li><a href="#">Shutdown and Reboot</a></li>
+            </ul>
+          </div>
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+    <script>
+      // Initialize Datatables
+      $(document).ready( function() {
+        $('.datatable').dataTable({
+          "fnDrawCallback": function( oSettings ) {
+            // if .sidebar-pf exists, call sidebar() after the data table is drawn
+            if ($('.sidebar-pf').length > 0) {
+              $(document).sidebar();
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
