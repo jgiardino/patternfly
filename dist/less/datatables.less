@@ -1,0 +1,365 @@
+//
+// Datatables
+// --------------------------------------------------
+
+.ColVis_Button {
+  &:active {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.ColVis_catcher {
+  position: absolute;
+  z-index: 999;
+}
+
+.ColVis_collection {
+  background-color: @dropdown-bg;
+  border: 1px solid @dropdown-border;
+  border-radius: @border-radius-base;
+  .box-shadow(0 6px 12px fade(@color-pf-black, 17.5%));
+  background-clip: padding-box;
+  list-style: none;
+  margin: -1px 0 0 0;
+  padding: 5px 10px;
+  width: 150px;
+  z-index: @zindex-dropdown;
+  label {
+    font-weight: normal;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 20px;
+  }
+}
+
+.ColVis_collectionBackground {
+  background-color: @color-pf-white;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 998;
+}
+
+.dataTables_header {
+  background-color: @color-pf-black-150;
+  border: 1px solid @table-border-color;
+  border-bottom: none;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  .btn {
+    .box-shadow(none);
+  }
+  .ColVis {
+    position: absolute;
+    right: 5px;
+    text-align: left;
+    top: 5px;
+    + .dataTables_info {
+      padding-right: 30px;
+    }
+  }
+  .dataTables_filter {
+    position: absolute;
+    input {
+      border: 1px solid @color-pf-black-400;
+      height: 24px;
+      @media (max-width: @screen-xs-max) {
+        width: 100px;
+      }
+    }
+  }
+  .dataTables_info {
+    padding: 2px 0;
+    @media (max-width: @screen-xs) {
+     text-align: right;
+    }
+    b {
+      font-weight: bold;
+    }
+  }
+}
+
+.dataTables_footer {
+  background-color: @color-pf-white;
+  border: 1px solid @table-border-color;
+  border-top: none;
+  overflow: hidden;
+}
+
+.dataTables_paginate {
+  background: @color-pf-black-100;
+  float: right;
+  margin: 0;
+  .pagination {
+    float: left;
+    margin: 0;
+    > li {
+      > span {
+        border-color: @color-pf-white @color-pf-black-300 @color-pf-black-150;
+        border-width: 0 1px;
+        font-size: (@font-size-base + 4);
+        font-weight: normal;
+        padding: 0;
+        text-align: center;
+        width: 31px;
+        &:hover,
+        &:focus {
+          .reset-filter();
+        }
+      }
+      &.last > span {
+        border-right: none;
+      }
+      &.disabled > span {
+        background: @color-pf-black-150;
+        border-left-color: @color-pf-black-200;
+        border-right-color: @color-pf-black-200;
+        .reset-filter();
+      }
+    }
+  }
+  .pagination-input {
+    float: left;
+    font-size: @font-size-base;
+    line-height: 1em;
+    padding: 4px 15px 0;
+    text-align: right;
+    .paginate_input {
+      border: 1px solid @color-pf-black-300;
+      .box-shadow(inset 0 1px 1px fade(@color-pf-black, 7.5%));
+      font-size: @font-size-base;
+      font-weight: 600;
+      height: 19px;
+      margin-right: 8px;
+      padding-right: 3px;
+      text-align: right;
+      width: 30px;
+    }
+    .paginate_of {
+      position: relative;
+      b {
+        margin-left: 3px;
+      }
+    }
+  }
+}
+
+.dataTables_empty {
+  background: @table-bg-accent;
+}
+
+/** Note: This may be needed with pagination controls?
+.dataTables_wrapper {
+  margin: @line-height-computed 0;
+  @media (max-width: @screen-xs-max) {
+    .table-responsive {
+      margin-bottom: 0;
+    }
+  }
+}
+*/
+
+.DTCR_clonedTable {
+  background-color: fade(@color-pf-white, 70%);
+  z-index: 202;
+}
+
+.DTCR_pointer {
+  background-color: @link-color;
+  width: 1px;
+  z-index: 201;
+}
+
+.datatable-pf {
+  // Override blank slate styles
+  .blank-slate-pf {
+    background-color: @table-bg-accent;
+    border: 1px solid @table-border-color;
+    border-radius: 0;
+    margin-top: -1px;
+  }
+  // Override table styles -- child selectors are due to specificity
+  table {
+    height: 100%;
+    margin-bottom: 0;
+    max-width: none !important;
+    > tbody {
+      > tr {
+        height: 100%;
+        > td {
+          // Styling for inline actions
+          &.datatable-pf-actions {
+            padding: 0;
+            vertical-align: middle;
+            & .btn-default {
+              &:hover,
+              &:focus,
+              &:active,
+              .open .dropdown-toggle {
+                background-color: transparent;
+              }
+            }
+          }
+          // Workaround for ie9 -- table cell loses border when gradient filter is applied
+          .ie9 &.datatable-pf-actions {
+            //position: relative;
+            //z-index: -1;
+          }
+        }
+        &:hover {
+          // Styling when hovering anywhere else on a row
+          > td.datatable-pf-actions {
+            background-color: @table-bg-accent;
+            border-bottom-color: @table-border-color;
+          }
+        }
+      }
+      > tr.selected {
+        color: @color-pf-white;
+        background-color: @color-pf-blue-400;
+        > td {
+          border-bottom-color: @color-pf-blue-500;
+          &.datatable-pf-actions {
+            background-color: @table-bg-accent;
+            border-bottom-color: @table-border-color;
+          }
+        }
+        &:hover {
+          > td {
+            background-color: inherit;
+            border-bottom-color: @color-pf-blue-500;
+            &.datatable-pf-actions {
+              background-color: @table-bg-accent;
+              border-bottom-color: @table-border-color;
+            }
+          }
+        }
+      }
+    }
+    // Override DataTable styles
+    thead {
+      .sorting,
+      .sorting_asc,
+      .sorting_desc,
+      .sorting_asc_disabled,
+      .sorting_desc_disabled {
+        cursor: pointer;
+      }
+      .sorting_asc,
+      .sorting_desc {
+        color: @link-color !important;
+        position: relative;
+        &:after {
+          content: @fa-var-angle-down;
+          font-family: @icon-font-name-fa;
+          font-size: (@font-size-base - 2);
+          /* font-weight: normal; */
+          /* height: (@font-size-base - 3); */
+          left: 7px;
+          /* line-height: @font-size-base; */
+          position: relative;
+          top: 2px;
+          /* vertical-align: baseline; */
+          /* width: @font-size-base; */
+        }
+        &:before {
+          background: @link-color;
+          content: "";
+          height: 2px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+        }
+      }
+      .sorting_asc:after {
+        content: @fa-var-angle-up;
+        top: -3px;
+      }
+    }
+    th:active {
+      outline: none;
+    }
+  }
+  // Override toolbar styles
+  .toolbar-pf {
+    background-color: @table-bg-accent;
+    border-bottom: none;
+    border-left: 1px solid @table-border-color;
+    border-right: 1px solid @table-border-color;
+    border-top: 1px solid @table-border-color;
+    margin-left: 0px;
+    margin-right: 0px;
+    .form-group {
+      @media (min-width: @grid-float-breakpoint) {
+        border-right: none;
+      }
+    }
+    .toolbar-pf-actions {
+      @media (min-width: @grid-float-breakpoint) {
+        .toolbar-pf-filter {
+          width: 40%;
+        }
+      }
+      > div {
+        margin-left: -10px;
+        margin-right: -10px;
+      }
+    }
+    .toolbar-pf-action-right {
+      // Overriding "float: none" of toolbar-pf-action-right
+      @media (max-width: @grid-float-breakpoint) {
+        float: right;
+      }
+      .btn {
+        margin-left: 5px;
+      }
+      .dropdown-kebab-pf {
+        margin-left: 10px;
+      }
+    }
+    .toolbar-pf-results {
+      border-top: 1px solid @table-border-color;
+      height: 40px;
+      line-height: 40px;
+      > div {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+//Inline action button and kebab
+// Sets button height to 100% of td height in firefox and chrome, but not in IE when wrapping occurs. 
+// Button height must be set dynamically in IE to be equal to td height.
+.datatable-pf-actions {
+  background-color: @btn-default-bg; // included just in case there are gaps between the edges of the buttons and the table cell
+  height: 100%;
+  .btn,
+  .dropdown-toggle {
+    border: none;
+    box-shadow: none;
+    height: 100%;
+    width: 100%;
+  }
+  .dropdown, .table-btn-pf {
+    height: 100%;
+  }
+}
+
+
+// Selection column
+.datatable-pf-select {
+  width: 33px;
+}
+
+// Results area containing selected row text
+.datatable-pf-results-right {
+  text-align: right;
+}
